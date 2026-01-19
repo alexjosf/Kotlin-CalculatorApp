@@ -40,17 +40,23 @@ fun CalculatorScreen(
                 .align(Alignment.BottomCenter),
             verticalArrangement = Arrangement.spacedBy(buttonSpacing)
         ) {
-            Text(
-                text = state.number1 + (state.operation?.symbol ?: "") + state.number2,
-                textAlign = TextAlign.End,
+            Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(vertical = 32.dp),
-                fontWeight = FontWeight.Light,
-                fontSize = 80.sp,
-                color = Color.White,
-                maxLines = 2
-            )
+            ) {
+                Text(
+                    text = state.number1 + (state.operation?.symbol ?: "") + state.number2,
+                    textAlign = TextAlign.End,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(vertical = 32.dp),
+                    lineHeight = 84.sp,
+                    fontWeight = FontWeight.Light,
+                    fontSize = 80.sp,
+                    color = Color.White,
+                    maxLines = 2
+                )
+            }
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.spacedBy(buttonSpacing)
