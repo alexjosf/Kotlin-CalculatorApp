@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.aspectRatio
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
@@ -26,10 +27,13 @@ import com.example.calculatorapp.ui.theme.Orange
 fun CalculatorScreen(
     state: CalculatorState,
     buttonSpacing: Dp,
-    modifier: Modifier = Modifier,
+    modifier: Modifier,
     onAction: (CalculatorAction) -> Unit
 ) {
-    Box(modifier = Modifier) {
+    Box(
+        modifier = modifier,
+        contentAlignment = Alignment.BottomCenter
+    ) {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
@@ -39,7 +43,7 @@ fun CalculatorScreen(
             Text(
                 text = state.number1 + (state.operation?.symbol ?: "") + state.number2,
                 textAlign = TextAlign.End,
-                modifier = modifier
+                modifier = Modifier
                     .fillMaxWidth()
                     .padding(vertical = 32.dp),
                 fontWeight = FontWeight.Light,
@@ -225,8 +229,8 @@ fun CalculatorScreen(
                     symbol = "0",
                     modifier = Modifier
                         .background(Color.DarkGray)
-                        .aspectRatio(1f)
-                        .weight(1f),
+                        .aspectRatio(2f)
+                        .weight(2f),
                     onClick = {
                         onAction(CalculatorAction.Number(0))
                     }

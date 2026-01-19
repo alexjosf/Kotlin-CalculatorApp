@@ -31,10 +31,9 @@ class MainActivity : ComponentActivity() {
                 val buttonSpacing = 8.dp
                 CalculatorScreen(
                     modifier = Modifier
-                        .fillMaxSize()
                         .background(MediumGray)
+                        .fillMaxSize()
                         .padding(16.dp),
-
                     buttonSpacing = buttonSpacing,
                     state = state,
                     onAction = viewModel::onAction
